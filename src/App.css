@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+html{
+  background-color: #F6F7F9;
+ 
+}
+html.dark{
+  background-color: #111827;
+}
+::selection{
+  background-color: #097c85;
+  color: white;
+}
+
+body{
+   
+  
+   margin: 0;
+   font-family: "Amiri", serif;
+  font-weight: 400;
+  font-style: normal;
+    overflow-x: hidden;
+}
+h1,h2{
+  font-family: "Amiri", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.loader {
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  text-indent: -9999em;
+  animation: mulShdSpin 1.1s infinite ease;
+  transform: translateZ(0);
+}
+@keyframes mulShdSpin {
+  0%,
+  100% {
+    box-shadow: 0em -2.6em 0em 0em #ce0303, 1.8em -1.8em 0 0em rgba(255,255,255, 0.2), 2.5em 0em 0 0em rgba(255,255,255, 0.2), 1.75em 1.75em 0 0em rgba(255,255,255, 0.2), 0em 2.5em 0 0em rgba(255,255,255, 0.2), -1.8em 1.8em 0 0em rgba(255,255,255, 0.2), -2.6em 0em 0 0em rgba(255,255,255, 0.5), -1.8em -1.8em 0 0em rgba(255,255,255, 0.7);
+  }
+  12.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255,255,255, 0.7), 1.8em -1.8em 0 0em #ce0303, 2.5em 0em 0 0em rgba(255,255,255, 0.2), 1.75em 1.75em 0 0em rgba(255,255,255, 0.2), 0em 2.5em 0 0em rgba(255,255,255, 0.2), -1.8em 1.8em 0 0em rgba(255,255,255, 0.2), -2.6em 0em 0 0em rgba(255,255,255, 0.2), -1.8em -1.8em 0 0em rgba(255,255,255, 0.5);
+  }
+  25% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255,255,255, 0.5), 1.8em -1.8em 0 0em rgba(255,255,255, 0.7), 2.5em 0em 0 0em #ce0303, 1.75em 1.75em 0 0em rgba(255,255,255, 0.2), 0em 2.5em 0 0em rgba(255,255,255, 0.2), -1.8em 1.8em 0 0em rgba(255,255,255, 0.2), -2.6em 0em 0 0em rgba(255,255,255, 0.2), -1.8em -1.8em 0 0em rgba(255,255,255, 0.2);
+  }
+  37.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255,255,255, 0.2), 1.8em -1.8em 0 0em rgba(255,255,255, 0.5), 2.5em 0em 0 0em rgba(90, 50, 50, 0.7), 1.75em 1.75em 0 0em #ce0303, 0em 2.5em 0 0em rgba(255,255,255, 0.2), -1.8em 1.8em 0 0em rgba(255,255,255, 0.2), -2.6em 0em 0 0em rgba(255,255,255, 0.2), -1.8em -1.8em 0 0em rgba(255,255,255, 0.2);
+  }
+  50% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255,255,255, 0.2), 1.8em -1.8em 0 0em rgba(255,255,255, 0.2), 2.5em 0em 0 0em rgba(8, 7, 7, 0.5), 1.75em 1.75em 0 0em rgba(71, 47, 47, 0.7), 0em 2.5em 0 0em #ce0303, -1.8em 1.8em 0 0em rgba(255,255,255, 0.2), -2.6em 0em 0 0em rgba(255,255,255, 0.2), -1.8em -1.8em 0 0em rgba(255,255,255, 0.2);
+  }
+  62.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255,255,255, 0.2), 1.8em -1.8em 0 0em rgba(255,255,255, 0.2), 2.5em 0em 0 0em rgba(255,255,255, 0.2), 1.75em 1.75em 0 0em rgba(255,255,255, 0.5), 0em 2.5em 0 0em rgba(10, 7, 7, 0.7), -1.8em 1.8em 0 0em #ce0303, -2.6em 0em 0 0em rgba(255,255,255, 0.2), -1.8em -1.8em 0 0em rgba(255,255,255, 0.2);
+  }
+  75% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255,255,255, 0.2), 1.8em -1.8em 0 0em rgba(255,255,255, 0.2), 2.5em 0em 0 0em rgba(255,255,255, 0.2), 1.75em 1.75em 0 0em rgba(255,255,255, 0.2), 0em 2.5em 0 0em rgba(19, 11, 11, 0.5), -1.8em 1.8em 0 0em rgba(119, 80, 80, 0.7), -2.6em 0em 0 0em #ce0303, -1.8em -1.8em 0 0em rgba(255,255,255, 0.2);
+  }
+  87.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255,255,255, 0.2), 1.8em -1.8em 0 0em rgba(255,255,255, 0.2), 2.5em 0em 0 0em rgba(255,255,255, 0.2), 1.75em 1.75em 0 0em rgba(255,255,255, 0.2), 0em 2.5em 0 0em rgba(255,255,255, 0.2), -1.8em 1.8em 0 0em rgba(255,255,255, 0.5), -2.6em 0em 0 0em rgba(17, 6, 6, 0.7), -1.8em -1.8em 0 0em #ce0303;
+  }
+}
+.MuiOutlinedInput-notchedOutline{
+  border-color: white !important;
+  color: white !important;
+}
+.MuiSelect-iconOutlined,.MuiFormLabel-root{
+  color: white !important;
+}
+.active{
+  color: #1AA076;
+  border-bottom: 2px solid;
+  border-image-slice: 1;
+   border-image-source: linear-gradient(to right, #358BE4 , #15B48E  );
+}
+.dark .active{
+  color: #00ffae;
+ 
+}
+
+.active.search{
+  background-color: #10B981;
+  border: none;
+  color: white;
+}
+
+.navbar{
+   box-shadow: inset 0 0 20px #837f78;
+   padding: 10px 20px;
+}
+
+
+/* Width of the scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track (background) */
+::-webkit-scrollbar-track {
+  background: #ececec;
+ 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* حجم الخط الأساسي */
+body {
+  font-size: 15px;
+}
+
+
+/* للأجهزة المتوسطة (تابلت) */
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  h1{
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 580px) {
+  body {
+    font-size: 12px;
+  }
+}
+
+
+.custom-slider {
+  -webkit-appearance: none; /* remove default */
+  width: 100%;
+  height: 6px;
+  background: rgb(52 211 153 / 10%);
+  border-radius: 1px;
+  outline: none;
+  transition: background 0.3s;
+}
+
+/* Thumb (the draggable circle) */
+.custom-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 2px;
+  height: 10px;
+  background: #10B981; /* indigo-600 */
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 2px rgba(0,0,0,0.3);
+  transition: background 0.3s ease;
+}
+
+.custom-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #4f46e5;
+  cursor: pointer;
+  border: none;
+}
+
+/* Hover effect */
+.custom-slider:hover {
+  background: #026b259d;
+  cursor: pointer;
+}
+
+.css-13vpke-MuiSlider-root{
+  color:#00ffae !important;
+}
+.css-17fpwt7-MuiGrid-root{
+  color: white !important;
+}
+
+@media (min-width:640px) and (max-width:740px){
+  .specificInfoSura{
+   top: 60px;
+   padding-top: 1px;
+  }
+}
+@media (max-width:640px){
+  .specificInfoSura{
+   top: 100px;
+   padding-top: 1px;
+  }
+}
+@media (max-width:440px){
+  .specificInfoSura{
+    top: 110px;
+    padding-top:20px ;
+  }
+}
+

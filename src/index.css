@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@tailwind utilities;
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+
