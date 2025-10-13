@@ -35,35 +35,31 @@ export default function QuranPlayer({ activeSura,volume, numofSura, isplaying, s
     const audio = audioRef.current;
     audio.volume = volume / 100;
   }, [volume]);
-useEffect(() => {
-  const audio = audioRef.current;
-  if (!audio) return;
-
-  // لو مفيش مصدر صوت صالح، أوقف أي تشغيل
-  if (!validSrc) {
-    audio.pause();
-    return;
-  }
-
-  if (isplaying) {
-    audio.play().catch((err) => {
-      console.warn("Playback error:", err);
-    });
-  } else {
-    audio.pause();
-  }
-}, [isplaying, validSrc]);
-  const handleDownload = (audio) => {
   
-    console.log("audio",audio)
-
+useEffect(() => {
+  if (validSrc && audioRef.current) {
+    const audio = audioRef.current;
+    audio.load(); // يعيد تهيئة العنصر بالصوت الجديد
   }
+}, [validSrc]);
+ 
+
+    // ✅ إيقاف وتشغيل بناءً على الحالة فقط بعد التحميل
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio || !validSrc) return;
+
+    if (isplaying) {
+      audio.play().catch((err) => console.warn("Play blocked:", err));
+    } else {
+      audio.pause();
+    }
+  }, [isplaying, validSrc]);
   return (
     <>
     <audio
       onLoadedData={onLoadedData}
       ref={audioRef}
-      
       loop={repeat}
       onTimeUpdate={onTimeUpdate}
       onEnded={onEnded}
