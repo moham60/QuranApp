@@ -1,9 +1,10 @@
 import { SiListmonk } from "react-icons/si";
 
 export default function Ayam() {
+ 
   return (
-    <div className="py-25 px-4 dark:text-white " dir="rtl">
-      <h1 className="text-center ">أيام فضلها عظيم عند الله</h1>
+    <div className="py-28 px-4 dark:text-white " dir="rtl">
+      <h1 className="text-center text-3xl mt-4 ">أيام فضلها عظيم عند الله</h1>
       <div className="ayam mt-8">
         <ul className="youm tenDaysOfHg my-2 text-2xl bg-white shadow dark:bg-gray-800 rounded p-4">
           <h2 className=" dark:text-emerald-300 text-emerald-600">
@@ -51,7 +52,7 @@ export default function Ayam() {
             </p>
           </li>
         </ul>
-        <ul className="youm  tenDaysOfHg my-2 text-2xl bg-white shadow dark:bg-gray-800 rounded p-4">
+        <ul className="youm Arafa my-2 text-2xl bg-white shadow dark:bg-gray-800 rounded p-4">
           <h2 className=" dark:text-emerald-300 text-emerald-600">يوم عرفة:</h2>
           <li className="my-3">
             <div className="flex items-center gap-2">
@@ -135,7 +136,7 @@ export default function Ayam() {
             </p>
           </li>
         </ul>
-        <ul className="youm  tenDaysOfHg my-2 text-2xl bg-white shadow dark:bg-gray-800 rounded p-4">
+        <ul className="youm  Ashora my-2 text-2xl bg-white shadow dark:bg-gray-800 rounded p-4">
           <h2 className=" dark:text-emerald-300 text-emerald-600">
             {" "}
             يوم عاشوراء:
@@ -238,7 +239,7 @@ export default function Ayam() {
             </div>
           </li>
         </ul>
-        <ul className="youm  tenDaysOfHg my-2 text-2xl bg-white shadow dark:bg-gray-800 rounded p-4">
+        <ul className="youm  friday my-2 text-2xl bg-white shadow dark:bg-gray-800 rounded p-4">
           <h2 className=" dark:text-emerald-300 text-emerald-600">
             {" "}
             يوم الجمعة:
@@ -344,8 +345,119 @@ export default function Ayam() {
             </div>
             <div className="my-2">
               <p className="text-gray-400">
-                قال رسول الله صلى الله عليه وسلم: &quot;خير يوم طلعت عليه الشمس يوم
-                الجمعة، فيه خلق آدم وفيه أدخل الجنة وفيه أخرج منها&quot;.
+                قال رسول الله صلى الله عليه وسلم: &quot;خير يوم طلعت عليه الشمس
+                يوم الجمعة، فيه خلق آدم وفيه أدخل الجنة وفيه أخرج منها&quot;.
+              </p>
+            </div>
+          </li>
+        </ul>
+
+        <ul className="youm  alkadr my-2 text-2xl bg-white shadow dark:bg-gray-800 rounded p-4">
+          <h2 className=" dark:text-emerald-300 text-emerald-600">
+            {" "}
+            ليله القدر:
+          </h2>
+
+          <li className="my-3">
+            <div className="flex items-center gap-2">
+              <SiListmonk className="dark:text-white" size={20} />
+              <span className=" dark:text-amber-300 text-amber-600">
+                أبرز فضائل ليلة القدر: :
+              </span>
+            </div>
+
+            <div className="my-2">
+              <span> خير من ألف شهر:</span>
+              <p className="text-gray-400">
+                قال تعالى: &quot;لَيْلَةُ الْقَدْرِ خَيْرٌ مِّنْ أَلْفِ
+                شَهْرٍ&quot;. وهذا يعني أن العمل الصالح فيها أفضل من العمل في
+                ألف شهر.
+              </p>
+            </div>
+            <div className="my-2">
+              <span>نزول القرآن:</span>
+              <p className="text-gray-400">
+                فيها نزل القرآن الكريم، وهو الكتاب الذي أنزله الله تعالى هدى
+                للناس.
+              </p>
+            </div>
+            <div className="my-2">
+              <span> نزول الملائكة:</span>
+              <p className="text-gray-400">
+                تتنزل الملائكة في هذه الليلة ومعهم الروح، لنزول الرحمة والبركة.
+              </p>
+            </div>
+            <div className="my-2">
+              <span> غفران الذنوب:</span>
+              <p className="text-gray-400">
+                من قام ليلة القدر إيماناً واحتساباً غفر له ما تقدم من ذنبه.
+              </p>
+            </div>
+          </li>
+          <li className="my-3">
+            <div className="flex items-center gap-2">
+              <SiListmonk className="dark:text-white" size={20} />
+              <span className=" dark:text-amber-300 text-amber-600">
+                الأعمال المستحبة{" "}
+              </span>
+            </div>
+            <div className="my-2">
+              <span> قيام الليل:</span>
+              <p className="text-gray-400">
+                أداء صلاة التهجد أو صلاة القيام، وهي من أفضل القربات في هذه
+                الليلة.
+              </p>
+            </div>
+            <div className="my-2">
+              <span>قراءة القرآن:</span>
+              <p className="text-gray-400">
+                تلاوة القرآن بتدبر وتأمل في معانيه.
+              </p>
+            </div>
+            <div className="my-2">
+              <span> الذكر والاستغفار:</span>
+              <p className="text-gray-400">
+                الإكثار من التسبيح والتهليل والتكبير والاستغفار، وطلب المغفرة من
+                الله.
+              </p>
+            </div>
+            <div className="my-2">
+              <span>الدعاء:</span>
+              <p className="text-gray-400">
+                الدعاء بما تيسر من الأدعية، وخاصةً دعاء &quot;اللهم إنك عفو تحب
+                العفو فاعف عني&quot;.
+              </p>
+            </div>
+            <div className="my-2">
+              <span>الاعتكاف:</span>
+              <p className="text-gray-400">
+                الاعتكاف في العشر الأواخر من رمضان، وهو الاعتكاف في المسجد
+                للتفرغ للعبادة.
+              </p>
+            </div>
+            <div className="my-2">
+              <span>زيارة الحسين عليه السلام:</span>
+              <p className="text-gray-400">
+                بعض الروايات أشارت إلى زيارة الإمام الحسين عليه السلام في ليلة
+                القدر.
+              </p>
+            </div>
+          </li>
+
+          <li className="my-3">
+            <div className="flex items-center gap-2">
+              <SiListmonk className="dark:text-white" size={20} />
+              <span className=" dark:text-amber-300 text-amber-600">
+                {" "}
+                حديث نبوي عن ليلة القدر :
+              </span>
+            </div>
+            <div className="my-2">
+              <p className="text-gray-400">
+                - عن عائشةَ رضِيَ اللهُ عنها قالتْ: ((كان رسولُ الله صلَّى الله
+                عليه وسلَّمَ يُجاوِر في العَشْر الأواخِر من رمضانَ، ويقول:
+                تَحرَّوا ليلةَ القَدْر في العَشْر الأواخِر من رمضانَ)) رواه
+                البخاريُّ (2020)، ومسلم (1169).
               </p>
             </div>
           </li>

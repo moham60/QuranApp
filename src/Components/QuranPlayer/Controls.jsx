@@ -175,7 +175,7 @@ export default function Controls({
         </Link>
       )}
 
-      <div className="repeat absolute left-4 bottom-4">
+      <div className="repeat absolute left-12 bottom-4">
         <BsArrowRepeat
           size={20}
           color={repeat ? "red" : "black"}

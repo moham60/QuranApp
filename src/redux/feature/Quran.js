@@ -10,7 +10,8 @@ export const Quran = createSlice({
     isplaying: false,
     isOpenBookMark: false,
     numberOfSura: 1,
-    nameOfSura:"",
+    nameOfSura: "",
+    
   },
   reducers: {
     getspecificAyah(state, action) {
@@ -40,7 +41,10 @@ export const Quran = createSlice({
         ...action.payload,
         addAt: new Date().toISOString(),
         numberSura: state.numberOfSura,
-        nameOfSura:state.nameOfSura,
+        nameOfSura: state.nameOfSura.replace(
+          /[\u0617-\u061A\u064B-\u0652]/g,
+          ""
+        ),
       });
       console.log("payload", action.payload);
       localStorage.setItem(
@@ -52,7 +56,8 @@ export const Quran = createSlice({
       console.log(action.payload);
       state.currentBookmarkAyat = state.currentBookmarkAyat.filter(
         (el) =>
-          el.numberInSurah !== action.payload.numberInSurah
+          el.number !== action.payload.sura ||
+          el.numberInSurah !== action.payload.aya
       );
       localStorage.setItem(
         "BookMarkAyat",

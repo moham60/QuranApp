@@ -1,7 +1,7 @@
 
 import Divider from "@mui/material/Divider";
 import Stack from "@mui/material/Stack";
-import CardPrayer from "../../Card/Card";
+
 import img1 from "../../assets/imagesPages/concept-ramadan-tradition.jpg";
 import img2 from "../../assets/imagesPages/people-celebrating-ramadan-together.jpg";
 import img3 from "../../assets/imagesPages/preparation-ramadan-tradition.jpg";
@@ -15,6 +15,8 @@ import moment from "moment";
 import "moment/dist/locale/ar-dz";
 import { motion } from "motion/react";
 import Grid from "@mui/material/Grid";
+import CardPrayer from "../../Components/Card/CardPrayer";
+import Spinner from "../../Components/Spinner/Spinner";
 
 
 moment.locale("ar-dz");
@@ -144,11 +146,7 @@ export default function PrayerTimes() {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center h-[100vh]">
-        <span
-          style={{ display: "block", margin: "auto" }}
-          className="loader"></span>
-      </div>
+      <Spinner/>
     );
   }
   const cardInfo = [
@@ -182,8 +180,8 @@ export default function PrayerTimes() {
     <motion.div
       dir="rtl"
       className="  text-black  dark:text-white p-20 mt-11 m-auto w-full"
-      initial={{ opacity: 0, translateX: "100%" }}
-      animate={{ opacity: 1, translateX: 0 }}
+      initial={{ opacity: 0, translateY: 50 }}
+      animate={{ opacity: 1, translateY: 0 }}
       transition={{ duration: 2.5 }}>
       <Grid container sx={{ alignItems: "center" }}>
         <Grid sx={{ my: 2 }} size={{ xs: 12, sm: 6 }}>

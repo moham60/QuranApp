@@ -4,12 +4,13 @@ import { Sun } from "lucide-react";
 import { Moon } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { setOpenBookMark } from "../../redux/feature/Quran";
-import SideModel from "../SideModel/SideModel";
+import SideModel from  "../Models/SideModel/SideModel"
 
 
 export default function Nav() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const dispatch = useDispatch();
+ 
   const { currentBookmarkAyat } = useSelector((state) => state.Quran);
   useEffect(() => {
     if (theme === "dark") {
@@ -19,11 +20,13 @@ export default function Nav() {
     }
     localStorage.setItem("theme", theme);
   }, [theme]);
+
   const [translateX, settranslateX] = useState(100)
+ 
   return (
     <>
       <nav className="bg-white border-b-1 border-gray-600 dark:bg-[#0F1423] fixed w-full  top-0 z-40 shadow">
-        <div className="   flex flex-wrap justify-center  md:flex-nowrap   items-center    md:justify-between mx-auto px-2 py-1">
+        <div className="   flex nav justify-center  md:flex-nowrap   items-center    md:justify-between mx-auto px-2 py-1">
           <Link
             to="/"
             className="flex flex-col  w-[100%] sm:w-[50%] md:w-auto justify-center  items-center group hover:bg-blue-200 p-2  rounded transition-all duration-1000">
@@ -36,9 +39,7 @@ export default function Nav() {
           <div className="flex w-[100%] sm:w-[50%]  justify-center md:w-auto md:order-2 items-center gap-2">
             <button
               title="show all pages"
-              
               onClick={() => {
-                
                 console.log("clicked");
                 settranslateX(0);
               }}
@@ -99,7 +100,7 @@ export default function Nav() {
             </button>
           </div>
           <div
-            className="items-center  justify-between  w-full hidden md:flex flex-1  md:order-1"
+            className="items-center  justify-between  w-full hidden lg:flex flex-1  md:order-1"
             id="navbar-search">
             <ul className="flex flex-col p-4 mt-4  border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-2 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-[#0F1423] dark:border-gray-700">
               <li>
@@ -202,8 +203,11 @@ export default function Nav() {
           </div>
         </div>
       </nav>
-      {<SideModel  translateX={translateX}
-      setTranslateX={settranslateX}/>}
+      {
+        <div >
+          <SideModel translateX={translateX} setTranslateX={settranslateX} />
+        </div>
+      }
     </>
   );
 }

@@ -3,9 +3,15 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import flowbitePlugin from "flowbite/plugin";
 
+import fs from "fs";
+import gracefulFs from "graceful-fs";
+gracefulFs.gracefulify(fs);
 // https://vite.dev/config/
 export default defineConfig({
   darkMode: "media",
   plugins: [react(), tailwindcss(), flowbitePlugin],
   base: "/QuranApp/",
 });
+
+
+

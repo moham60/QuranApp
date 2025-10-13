@@ -2,7 +2,9 @@
 import { guessSurah } from "quran-quiz";
 import {  useState } from "react";
 import toast from "react-hot-toast";
-import RadioButtonsGroup from "../RaidoButtons/RadioButtons";
+import RadioButtonsGroup from "../../Components/RaidoButtons/RadioButtons";
+import Confetti from "react-confetti";
+import { useWindowSize } from "react-use";
 
 export default function Questions() {
   const [Questions, setQuestions] = useState(null);
@@ -13,7 +15,10 @@ export default function Questions() {
     });
    
     setQuestions(data)
+
   }
+  const { width, height } = useWindowSize();
+
   const arr = Array.from({ length: 20 }, (_, i) => i + 1);
   const [numbersOfQuestions, setnumbersOfQuestions] = useState(0);
   const surahNames = [
@@ -154,6 +159,8 @@ export default function Questions() {
     console.log(answers);
   };
   const [isFinished, setisFinished] = useState(false);
+  const [celebrate, setcelebrate] = useState(false);
+  const [score, setscore] = useState(0);
   const handleFinishExam = () => {
     let score = 0;
     const corrects = {};
@@ -169,6 +176,7 @@ export default function Questions() {
           score += 1;
         }
       });
+      setscore(score);
       setisFinished(true);
       setCorrectAnswers(corrects); // خزّن الإجابات الصحيحة في الـ state
     });
@@ -237,10 +245,9 @@ export default function Questions() {
                   Number(numbersOfQuestions)
                 );
                 setmakeQuiz(false);
-              
               } else {
                 toast(" أختر أكثر 4 سور أو أكتر و عدد أسئلة أكتر من 4", {
-                  duration: "500",
+                  duration: "1000",
                   position: "top-center",
                   icon: "❗",
                 });
@@ -263,7 +270,7 @@ export default function Questions() {
               <div className="flex flex-col gap-2">
                 <RadioButtonsGroup
                   handleChange={(e) => {
-                    handleChange(e.target.value, q.options,idx);
+                    handleChange(e.target.value, q.options, idx);
                   }}
                   question={q.question}
                   values={q.options}
@@ -271,31 +278,49 @@ export default function Questions() {
                   selectedAnswer={answers[idx]}
                   isFinished={isFinished}
                   correctAnswer={correctAnswers[idx]}
-
                 />
               </div>
             </div>
           ))}
-            <button
-              
-              onClick={() => {
-                if (isFinished === false) {
-                  handleFinishExam();
-                 
-                
-                }
-                else {
-                  setmakeQuiz(true)
+          <button
+            onClick={() => {
+              if (isFinished === false) {
+                handleFinishExam();
+                if (score >= parseInt((1 / 2) * numbersOfQuestions)) {
+                  setcelebrate(true);
+                  setTimeout(() => {
+                    setcelebrate(false);
+                  }, 30000);
                 }
                
-
-              }}
-              className="bg-blue-500 cursor-pointer text-white p-2 rounded">
-              {isFinished?"امتحن مره اخري":"انهاء الامتحان"}
+                console.log("score",score);
+              } else {
+                setmakeQuiz(true);
+                setCorrectAnswers({});
+                setAnswers({});
+                setSelected([]);
+                setisFinished(false);
+                setnumbersOfQuestions(0);
+              }
+            }}
+            className="bg-blue-500 cursor-pointer text-white p-2 rounded">
+            {isFinished ? "امتحن مره اخري" : "انهاء الامتحان"}
           </button>
         </div>
       ) : (
         ""
+      )}
+      {celebrate && (
+        <Confetti
+          width={width}
+          height={height}
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            pointerEvents: "none",
+          }}
+        />
       )}
     </div>
   );

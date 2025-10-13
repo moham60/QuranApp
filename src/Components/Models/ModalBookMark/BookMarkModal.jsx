@@ -1,5 +1,5 @@
 import { useDispatch, useSelector} from "react-redux";
-import { deleteAyahFromBookMark,setOpenBookMark } from "../../redux/feature/Quran";
+import { deleteAyahFromBookMark,setOpenBookMark } from "../../../redux/feature/Quran";
 import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 
@@ -8,12 +8,15 @@ export default function BookMarkModal({ isopen }) {
   const dispatch = useDispatch();
 const {  currentBookmarkAyat } =
     useSelector((state) => state.Quran);
-    const [sortedBookmarkAyat, setSortedBookmarkAyat] = useState([]);
+  const [sortedBookmarkAyat, setSortedBookmarkAyat] = useState([]);
+  const [originalBookmarkAyat, setOriginalBookmarkAyat] = useState([]);
+
 
   const [orderByNewest, setorder] = useState(true);
   useEffect(() => {
+    setOriginalBookmarkAyat(currentBookmarkAyat);
     setSortedBookmarkAyat(currentBookmarkAyat);
-  },[])
+  },[currentBookmarkAyat])
   function handleSort(orderByNewest) {
     const sorted = [...currentBookmarkAyat].sort((a, b) =>
       orderByNewest
@@ -21,6 +24,17 @@ const {  currentBookmarkAyat } =
         : new Date(a.addAt).getTime() - new Date(b.addAt).getTime()
     );
     setSortedBookmarkAyat(sorted);
+  }
+
+  function handleSearch(value) {
+    if (value) {
+      const displayBookMarkAyat = originalBookmarkAyat.filter((el) =>
+        el.nameOfSura.includes(value)
+      );
+      setSortedBookmarkAyat(displayBookMarkAyat);
+    } else {
+      setSortedBookmarkAyat(originalBookmarkAyat); // نرجع للأصل
+    }
   }
   const navigte = useNavigate();
   return isopen ? (
@@ -96,6 +110,9 @@ const {  currentBookmarkAyat } =
                 <input
                   dir="rtl"
                   type="search"
+                  onChange={(e) => {
+                    handleSearch(e.target.value);
+                  }}
                   id="default-search"
                   autoComplete="off"
                   className="block w-full p-2   text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -208,7 +225,13 @@ const {  currentBookmarkAyat } =
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        dispatch(deleteAyahFromBookMark(el));
+                        dispatch(
+                          deleteAyahFromBookMark({
+                            sura: el.number,
+                            aya: el.numberInSurah,
+                          })
+                        );
+                       
                       }}
                       className="deleteBookMark cursor-pointer hover:text-red-600">
                       <svg

@@ -44,30 +44,33 @@ export default function Search() {
   }
 
   return (
-    <div className="py-20 sm:py-10 mt-4">
-      <div className="dark:text-white py-4  ">
+    <div className="  py-28 searchPage ">
+      <div className="dark:text-white py-2  ">
         <>
-          <div className="   p-3 border-b-1 border-gray-500 ">
-            <Link to="/" className="flex items-center gap-4 dark:text-white">
-              <div className="p-2 hover:bg-gray-600 rounded-xl transition-all duration-700">
-                <svg
-                  aria-hidden="true"
-                  focusable="false"
-                  data-prefix="fas"
-                  data-icon="arrow-left-long"
-                  className="svg-inline--fa fa-arrow-left-long "
-                  role="img"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512">
-                  <path
-                    fill="currentColor"
-                    d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288 480 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-370.7 0 73.4-73.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-128 128z"
-                  />
-                </svg>
-              </div>
-
-              <span className="text-2xl "> البحث في القُرآن الكَريم</span>
+          <div className=" px-2 py-5 flex gap-1 items-center  border-b-1 border-gray-500 ">
+            <Link
+              to="/"
+              className="py-1 px-2 hover:bg-gray-100  rounded-lg dark:hover:bg-gray-400 transition-all duration-150"
+              href="#/"
+              data-discover="true">
+              <svg
+                width={20}
+                aria-hidden="true"
+                focusable="false"
+                data-prefix="fas"
+                data-icon="arrow-left-long"
+                className="svg-inline--fa fa-arrow-left-long "
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512">
+                <path
+                  fill="currentColor"
+                  d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288 480 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-370.7 0 73.4-73.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-128 128z"
+                />
+              </svg>
             </Link>
+
+            <span className="text-2xl "> البحث في القُرآن الكَريم</span>
           </div>
           <div className="flex py-4 gap-5 items-center justify-center flex-col">
             <div className=" rounded-2xl p-3">
@@ -87,7 +90,7 @@ export default function Search() {
               </svg>
             </div>
 
-            <p className="text-3xl">إبحث في آيات القرآن الكريم</p>
+            <p className="text-xl  sm:text-3xl">إبحث في آيات القرآن الكريم</p>
             <p className="text-[#9BA2AE]  text-center">
               يمكنك البحث في القرآن الكريم باللغة العربية أو الإنجليزية. ابحث عن
               الآيات باستخدام الكلمات المفتاحية أو المعاني.
@@ -127,7 +130,7 @@ export default function Search() {
                 بحث فوري
               </span>
             </div>
-            <div className="flex items-center p-4 gap-4 w-[100%] sm:w[90%] lg:w-[70%]">
+            <div className="flex justify-center flex-wrap items-center p-4 gap-4 w-[100%] sm:w[90%] lg:w-[100%]">
               <button
                 onClick={handleSwitchLang}
                 title={
@@ -153,7 +156,7 @@ export default function Search() {
                   <path d="M14 18h6" />
                 </svg>
               </button>
-              <div className="relative w-full ">
+              <div className="relative w-[90%] sm:w-[85%] lg:w-[80%]  ">
                 <button
                   type="submit"
                   onClick={() => {
@@ -214,16 +217,11 @@ export default function Search() {
       <div className="mt-4  px-4 w-[100%] sm:w[90%] lg:w-[70%] m-auto ">
         {searchedValues ? (
           searchedValues.map((el, index) => (
-            <div key={index} data-ayah={el.numberInSurah}>
+            <div key={index}>
               <button
                 onClick={() => {
-                  navigate(`/sura/${el.surah.number}`, {
-                    state: {
-                      scrollToAyah: el.numberInSurah,
-                    },
-                  });
+                  navigate(`/sura/${el.surah.number}`);
                 }}
-                
                 className="dark:bg-[#141C2A] relative block px-10  pb-10 pt-14 h-auto w-full border dark:border-[#222] border-[white] dark:hover:border-[#111] hover:border-emerald-300 hover:cursor-pointer bg-white dark:text-white hover:translate-y-[-5px] my-5 rounded-2xl group transition-all duration-300">
                 <p className="dark:bg-[#102D30] bg-[#D1FAE5]  flex gap-2 text-[#42B48E] dark:text-[#34D399] py-2 px-10 rounded-xl absolute left-4 top-2">
                   <span> آية {el.numberInSurah}</span>

@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import Nav from "../Navbar/Navbar";
 import { Outlet } from "react-router";
-import BookMarkModal from "../ModalBookMark/BookMarkModal";
+import BookMarkModal from './../Models/ModalBookMark/BookMarkModal';
 
 export default function Layout() {
   const { isOpenBookMark} =
