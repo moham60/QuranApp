@@ -37,7 +37,6 @@ export default function SpecificSura() {
   const [audioUrls, setaudioUrls] = useState(null);
   const [numofSura, setnumofSura] = useState(null);
   const verseInpt = useRef(null);
-
   const [openModelTafsir, setopenModelTafsir] = useState(false);
   const [receiterId, setreceiterId] = useState(1);
   const tafsirButtonList = useRef(null);
@@ -74,14 +73,14 @@ export default function SpecificSura() {
  
     const location = useLocation();
     useEffect(() => {
-      console.log("location:", location.state);
       if (location) {
         const scroll = location?.state?.scrollToAyah;
         if (scroll) {
               dispatch(getspecificAyah(scroll));
         }
       }
-    },[location])
+    }, [location])
+  //remove playEvent When close The page
   useEffect(() => {
     return () => {
       dispatch(playPause(false));
@@ -107,7 +106,6 @@ export default function SpecificSura() {
   function changeFormatNumberToCanGotoserver() {
     if (number < 10) {
       setnumofSura("00" + number);
-      console.log(numofSura);
     } else if (number == 10 || (number > 10 && number < 100)) {
       setnumofSura("0" + number);
     } else {
@@ -120,23 +118,21 @@ export default function SpecificSura() {
         `https://mp3quran.net/api/v3/reciters`
       )
       .then((res) => {
-        console.log(res);
         setallReciters(res.data.reciters);
         setcopyNameReciters(res.data.reciters);
       })
-      .catch((res) => {
-        console.log(res);
+      .catch((err) => {
+        console.log(err);
       });
   }
   function getRecentReciters() {
     axios
       .get(`https://mp3quran.net/api/v3/recent_reads`)
       .then((res) => {
-        console.log(res);
         setcopyNameReciters(res.data.reads);
       })
-      .catch((res) => {
-        console.log(res);
+      .catch((err) => {
+        console.log(err);
       });
   }
  
@@ -147,7 +143,7 @@ export default function SpecificSura() {
         `https://www.mp3quran.net/api/v3/reciters?language=ar&reciter=${receiterId}`
       )
       .then((res) => {
-        console.log("res:", res);
+        
         setaudioUrls(res.data.reciters[0].moshaf[0].server);
         dispatch(
           getCurrentSurasForSpecificReciter(
@@ -156,9 +152,9 @@ export default function SpecificSura() {
         );
         setisLoadingServer(false);
       })
-      .catch((res) => {
+      .catch((err) => {
         setisLoadingServer(false);
-        console.log(res);
+        console.log(err);
       });
   }
 
@@ -230,7 +226,6 @@ export default function SpecificSura() {
         setloadingTafsir(false);
       }
       if (ayah) {
-        console.log("textAyaTafsir", ayah.text, "slug", slug);
         setTafsirText(ayah.text);
       } else {
         setTafsirText("لم يتم العثور على تفسير لهذه الآية.");
@@ -264,7 +259,6 @@ export default function SpecificSura() {
         if (el.numberInSurah === ayah.numberInSurah &&el.page===ayah.page) {
           dispatch(deleteAyahFromBookMark(ayah));
           message.success("تم حذف الأيه من العلامات المرجعية", 2000);
-          console.log("deleted");
           res = true;
         } 
       });
@@ -284,12 +278,10 @@ export default function SpecificSura() {
       (el) => el.numberInSurah === ayah.numberInSurah&&el.page===ayah.page);
   }
  
-  console.log("metaData", metaData);
 
   if (isLoading) {
     return <Spinner/>
   }
-  console.log(ayat);
   return (
     <>
       
@@ -742,7 +734,6 @@ export default function SpecificSura() {
                             onClick={(e) => {
                               const index = e.target.id - 1;
                               changeTasirBolean(index);
-                              console.log("displayArray", displayTafsir);
 
                               getAyahTafsir(ayah.numberInSurah, Tafsir.slug);
                             }}
@@ -804,11 +795,9 @@ export default function SpecificSura() {
                       <div
                         onClick={() => {
                           changeTafsir(ele.id, ele.arabic, ele.slug);
-                          console.log("allo", displayTafsir);
                           const elements = displayTafsir.map((el) =>
                             el == false ? el : ""
                           );
-                          console.log("elements", elements);
                           elements.filter((el) => (el == "" ? false : el));
                           setdisplayTafsir(elements);
                           setopenModelTafsir(false);
@@ -847,6 +836,7 @@ export default function SpecificSura() {
           setdisplayedRecent={setdisplayedRecent}
           displayedRecent={displayedRecent}
           getRecentReciters={getRecentReciters}
+          getAllReciters={getAllReciters}
           getServerOfsura={getServerOfsura}
           handleChangeInpt={handleChangeInpt}
           handleModelRecitersClose={handleModelRecitersClose}

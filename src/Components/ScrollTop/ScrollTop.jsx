@@ -18,7 +18,7 @@ export default function ScrollTop() {
       {scrolled ? (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed cursor-pointer right-8 bottom-10 p-3 rounded-full bg-gradient-to-br from-emerald-500 to-blue-500  transition-all duration-300 z-50 translate-y-0 opacity-100"
+          className="fixed cursor-pointer right-2 bottom-2 p-3 rounded-full bg-gradient-to-br from-emerald-500 to-blue-500  transition-all duration-300 z-50 translate-y-0 opacity-100"
           aria-label="Scroll to top">
           <svg
             xmlns="http://www.w3.org/2000/svg"

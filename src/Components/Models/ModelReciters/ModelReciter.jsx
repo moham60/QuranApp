@@ -8,7 +8,8 @@ export default function ModelReciter({
     handleModelRecitersClose,
     displayedRecent,
     setdisplayedRecent,
-     getRecentReciters,
+  getRecentReciters,
+    getAllReciters,
     setcopyNameReciters,
     handleChangeInpt,
     getServerOfsura,
@@ -46,7 +47,7 @@ export default function ModelReciter({
                         <>
                           <button
                             onClick={() => {
-                              setcopyNameReciters(allReciters);
+                             getAllReciters()
                               setdisplayedRecent(false);
                             }}
                             className={

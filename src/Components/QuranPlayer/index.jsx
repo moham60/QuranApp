@@ -49,13 +49,16 @@ export default function Player({ numofSura, activeSura, isLoading,setShowPlayer 
           isLoading={isLoading}
           setRepeat={setRepeat}
           appTime={appTime}
+          setShowPlayer={setShowPlayer}
           setSeekTime={setSeekTime}
           handlePlayPause={() => {
             dispatch(playPause(!isplaying)); //once click it change is playing from  false to true or The opposite.
           }}
         />
+      
       </div>
-      <div className="PlayerAudio">
+      
+      <div className="PlayerAudio ">
         <QuranPlayer
           seekTime={seekTime}
           activeSura={activeSura}
@@ -74,7 +77,7 @@ export default function Player({ numofSura, activeSura, isLoading,setShowPlayer 
           }}
         />
       </div>
-      <div className="volumeBar hidden sm:block absolute right-6 bottom-2">
+      <div className="volumeBar hidden sm:block absolute right-6 top-20">
         <VolumeBar
           onChange={(e) => setvolumeValue(e.target.value)}
           value={volumeValue}
@@ -83,13 +86,7 @@ export default function Player({ numofSura, activeSura, isLoading,setShowPlayer 
           max={1}
         />
       </div>
-      <div className="closePlayer absolute left-5 bottom-2">
-        <button
-          onClick={()=>setShowPlayer(false)}
-          className="cursor-pointer">
-          <IoMdClose size={20}  className="dark:text-white   rounded hover:bg-gray-500"/>
-        </button>
-      </div>
+      
     </div>
   );
 }

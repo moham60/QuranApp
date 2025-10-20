@@ -61,15 +61,16 @@ useEffect(() => {
       onLoadedData={onLoadedData}
       ref={audioRef}
       loop={repeat}
+     
       onTimeUpdate={onTimeUpdate}
       onEnded={onEnded}
         src={validSrc}></audio>
       <a
             href={validSrc}
 
-            className="px-4 absolute left-24 bottom-3 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white transition-all shadow"
+            className="px-4 text-center block mt-2 w-25 mx-auto  py-2 rounded-xl cursor-pointer dark:bg-gray-700 bg-gray-100  dark:text-white hover:bg-gray-200 dark:hover:bg-gray-800 focus:outline-none"
           >
-            تحميل التلاوة 🎵
+            تحميل التلاوة 
           </a>
     </>
     

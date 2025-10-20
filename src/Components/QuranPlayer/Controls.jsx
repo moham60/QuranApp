@@ -5,6 +5,7 @@ import {
   BsFillPlayFill,
  
 } from "react-icons/bs";
+import { IoMdClose } from "react-icons/io";
 import { Link, useParams } from "react-router";
 
 
@@ -16,6 +17,7 @@ export default function Controls({
   handlePlayPause,
   setSeekTime,
   appTime,
+  setShowPlayer
 }) {
   const { number}=useParams();
   return (
@@ -174,17 +176,30 @@ export default function Controls({
           </svg>
         </Link>
       )}
-
-      <div className="repeat absolute left-12 bottom-4">
-        <BsArrowRepeat
+      <div className="flex items-center gap-1 absolute left-1 bottom-2 sm:bottom-4 ">
+          <div className="closePlayer">
+              <button
+                onClick={()=>setShowPlayer(false)}
+                className="cursor-pointer">
+                <IoMdClose size={20}  className="dark:text-white   rounded hover:bg-gray-500"/>
+              </button>
+            </div>
+        <div className="repeat ">
+          <button  onClick={() => {
+            setRepeat((prev) => !prev);
+          }}>
+          <BsArrowRepeat
           size={20}
           color={repeat ? "red" : "black"}
-          onClick={() => {
-            setRepeat((prev) => !prev);
-          }}
-          className="hidden sm:block dark:text-white cursor-pointer"
+         
+          className="dark:text-white cursor-pointer"
         />
+          </button>
+        
       </div>
+      
+      </div>
+   
     </div>
   );
 }
