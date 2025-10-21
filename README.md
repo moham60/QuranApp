@@ -22,6 +22,18 @@ QuranApp is a modern, responsive web application built with **React** and **Vite
 - **Languages**: HTML, CSS, JavaScript (ES6+)
 
 ---
+##📁 Project Structure
+QuranApp/
+├─ public/              # Static assets (favicon, etc.)
+├─ src/                 # Source files  
+│   ├─ components/      # Reusable React components  
+│   ├─ pages/           # Page views (Home, Sura view, etc.)  
+│   ├─ styles/          # CSS / SCSS files  
+│   └─ App.jsx          # Entry component  
+├─ package.json  
+├─ vite.config.js  
+└─ README.md  
+
 
 ## 🚀 Getting Started  
 Follow these steps to run the project locally:
@@ -41,5 +53,5 @@ npm run dev
 npm run build
 
 # 5. Preview the production build locally  
-npm run preview  
-##ح
+npm run preview
+
